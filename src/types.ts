@@ -12,18 +12,48 @@ export interface Position {
   longitude: number;
 }
 
-export interface WeatherTimepoint {
-  cloudcover: number;
-  lifted_index: number;
-  prec_amount: number;
-  prec_type: string;
-  rh2m: string;
-  temp2m: number;
-  timepoint: number;
-  weather: string;
-  wind10m: { direction: string; speed: number };
+export interface WeatherStatus {
+  main: string;
+  description: string;
+  icon: string;
+}
+
+interface BaseWeatherTimepoint {
+  wind_speed: number;
+  wind_deg: number;
+  weather: [WeatherStatus];
+}
+
+export interface DayNightTemps {
+  day: number;
+  night: number;
+}
+
+export interface WeatherTimepoint extends BaseWeatherTimepoint {
+  temp: DayNightTemps & {
+    min: number;
+    max: number;
+    eve: number;
+    morn: number;
+  };
+  pop: number;
+}
+
+export interface CurrentWeather extends BaseWeatherTimepoint {
+  temp: number;
 }
 
 export interface WeatherData {
-  dataseries: WeatherTimepoint[];
+  current: CurrentWeather;
+  daily: WeatherTimepoint[];
 }
+
+export interface Address {
+  address: {
+    city: string;
+    state: string;
+    country: string;
+  };
+}
+
+export type ReadableLocation = string;

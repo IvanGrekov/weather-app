@@ -1,32 +1,20 @@
-import React, { useState, useEffect } from 'react';
-import { StyleSheet } from 'react-native';
+import React from 'react';
 import { Box } from 'native-base';
 
-import { Loader } from './Loader';
+import { Header } from './Header';
 
-import { getWeatherForecast } from '../api/getWeatherForecast';
-import { WeatherData, WeatherTimepoint } from '../types';
+import { WeatherTimepoint, ReadableLocation, CurrentWeather } from '../types';
 
-export const Content = () => {
-  const [wheatherData, setWheatherData] = useState<WeatherTimepoint[]>([]);
+interface Props {
+  weatherData: WeatherTimepoint[];
+  location: ReadableLocation;
+  currentWeather: CurrentWeather;
+}
 
-  useEffect(() => {
-    getWeatherForecast().then((data: WeatherData) => {
-      setWheatherData(data.dataseries);
-    });
-  }, []);
-
-  console.log(wheatherData);
-
+export const Content = ({ weatherData, location, currentWeather }: Props) => {
   return (
-    <Box style={styles.contentBox}>
-      <Loader />
+    <Box paddingTop={30}>
+      <Header weatherData={weatherData} location={location} currentWeather={currentWeather} />
     </Box>
   );
 };
-
-const styles = StyleSheet.create({
-  contentBox: {
-    height: '100%',
-  },
-});

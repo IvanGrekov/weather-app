@@ -1,27 +1,22 @@
-import { getCurrentLocation } from './getLocation';
-import { Position } from '../types';
+import { initialCurrentWeather, initialDailyWeather } from '../initialData';
 
-const base_URL = 'https://www.7timer.info/bin/api.pl';
+const base_URL = 'https://api.openweathermap.org/data/2.5/onecall';
+const API_key = 'eba6f044ab4a6a8441416431c0cda1b1';
+const searchParams = `?exclude=minutely,hourly&appid=${API_key}&units=metric&lang=ru`;
 
-const sendQuery = (latitude: number, longitude: number) => {
-  const url = `${base_URL}?&lat=${latitude}&lon=${longitude}&product=civil&output=json`;
+export const getWeatherForecast = (latitude: number, longitude: number) => {
+  const url = `${base_URL}${searchParams}&lat=${latitude}&lon=${longitude}`;
 
   return fetch(url)
     .then(response => response.json())
-    .catch(console.error);
-};
+    .catch(error => {
+      console.warn('Error was caught during getting weather forecast');
 
-export const getWeatherForecast = async () => {
-  try {
-    const position: Position = await getCurrentLocation();
+      console.error(error);
 
-    const weatherForecast = await sendQuery(
-      position.latitude,
-      position.longitude,
-    );
-
-    return weatherForecast;
-  } catch (error) {
-    console.warn(error);
-  }
+      return {
+        current: initialCurrentWeather,
+        daily: initialDailyWeather,
+      };
+    });
 };
