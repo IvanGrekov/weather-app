@@ -1,4 +1,4 @@
-import { initialReadableLocation } from '../initialData';
+import { initialReadableLocation } from '../utils/InitialData';
 
 const base_URL = 'https://us1.locationiq.com/v1/reverse.php';
 const API_key = 'pk.a6734750c071fa9e35042d9f0666bb68';

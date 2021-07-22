@@ -1,7 +1,7 @@
 import GetLocation from 'react-native-get-location';
 
-import { initialLocation } from '../initialData';
-import { Position } from '../types';
+import { initialLocation } from '../utils/InitialData';
+import { Position } from '../utils/Types';
 
 const sendLocationQuery = () =>
   GetLocation.getCurrentPosition({

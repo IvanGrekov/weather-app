@@ -1,66 +1,92 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
-import { VStack, HStack, Heading, Text } from 'native-base';
+import { HStack, Heading } from 'native-base';
 
 import LocationIcon from '../assets/icons/LocationIcon';
-import { Temperature } from './Temperature';
-import { TempSeparator } from './TempSeparator';
-import { Weatherimage } from './WeatherImage';
 
-import { WeatherTimepoint, ReadableLocation, CurrentWeather } from '../types';
-import { styleVariables } from '../helpers/styleHelper';
-import { getDayNightTemps, getWeatherStatus } from '../helpers/weatherHepler';
+import { ReadableLocation } from '../utils/Types';
+import GlobalStyle from '../styles/GlobalStyle';
 
-interface Props {
-  weatherData: WeatherTimepoint[];
-  location: ReadableLocation;
-  currentWeather: CurrentWeather;
-}
+export const Header = ({ location }: { location: ReadableLocation }) => {
+  // const { temp, feels_like, wind_deg, wind_speed } = currentWeather;
+  // const { main, description, icon } = getWeatherStatus(currentWeather);
 
-export const Header = ({ weatherData, location, currentWeather }: Props) => {
-  const { day, night } = getDayNightTemps(weatherData[0]);
-  const { temp } = currentWeather;
-  const { main, description, icon } = getWeatherStatus(currentWeather);
+  // const roundedWindSpeed = Math.round(wind_speed);
 
   return (
-    <VStack alignItems="center">
-      <HStack style={styles.headingWrapper}>
-        <Heading style={styles.heading}>{location}</Heading>
+    // <VStack alignItems="center">
+    <HStack style={styles.header}>
+      <Heading style={[GlobalStyle.font, GlobalStyle.heading, { textAlign: 'center' }]}>
+        {location}
+      </Heading>
 
-        <LocationIcon />
-      </HStack>
+      <LocationIcon />
+    </HStack>
 
-      <VStack alignItems="center">
-        <Temperature value={temp} isHeading={true} />
+    // <HStack style={styles.currentWeatherWrapper}>
+    //   <VStack space={2}>
+    //     <Temperature value={temp} isHeading={true} />
 
-        <HStack>
-          <Temperature value={day} />
-          <TempSeparator />
-          <Temperature value={night} isNight={true} />
-        </HStack>
+    //     <HStack alignItems="center">
+    //       <Text style={styles.feelsLike}>{'Ощущается как '}</Text>
+    //       <Temperature value={feels_like} />
+    //     </HStack>
+    //   </VStack>
 
-        <HStack alignItems="center">
-          <Text style={styles.weather}>{description}</Text>
-          <Weatherimage iconCode={icon} alt={main} />
-        </HStack>
-      </VStack>
-    </VStack>
+    //   <VStack>
+    //     <HStack alignItems="center">
+    //       <Text style={styles.weather}>{description}</Text>
+    //       <Weatherimage iconCode={icon} alt={main} />
+    //     </HStack>
+
+    //     <HStack alignItems="center">
+    //       <Box
+    //         style={[
+    //           styles.windIconWrapper,
+    //           {
+    //             transform: [{ rotate: `${wind_deg}deg` }],
+    //           },
+    //         ]}>
+    //         <WindFirectionIcon />
+    //       </Box>
+
+    //       <Text style={styles.windInfo}>{` ${roundedWindSpeed} м/с`}</Text>
+    //     </HStack>
+    //   </VStack>
+    // </HStack> */}
+    // </VStack>
   );
 };
 
 const styles = StyleSheet.create({
-  headingWrapper: {
+  header: {
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  heading: {
-    fontSize: 22,
-    textAlign: 'center',
-    color: styleVariables.fontColor,
-  },
-  weather: {
-    fontSize: 22,
-    textTransform: 'capitalize',
-    color: styleVariables.fontColor,
+    marginVertical: 20,
   },
 });
+// currentWeatherWrapper: {
+//   width: '100%',
+//   padding: 15,
+//   justifyContent: 'space-between',
+
+//   borderRadius: 20,
+//   backgroundColor: '#0779E4',
+// },
+// feelsLike: {
+//   fontSize: styleVariables.defaultFontSize - 2,
+//   color: styleVariables.fontColor,
+// },
+// weather: {
+//   fontSize: styleVariables.defaultFontSize,
+//   textTransform: 'capitalize',
+//   color: styleVariables.fontColor,
+// },
+// windIconWrapper: {
+//   width: styleVariables.windIconSize,
+//   height: styleVariables.windIconSize,
+// },
+// windInfo: {
+//   fontSize: styleVariables.defaultFontSize,
+//   color: styleVariables.fontColor,
+// },

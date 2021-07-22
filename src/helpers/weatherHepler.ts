@@ -1,4 +1,4 @@
-import { WeatherTimepoint, DayNightTemps, CurrentWeather, WeatherStatus } from '../types';
+import { WeatherTimepoint, DayNightTemps, CurrentWeather, WeatherStatus } from '../utils/Types';
 
 export const getDayNightTemps = (data: WeatherTimepoint): DayNightTemps => {
   const { temp } = data;

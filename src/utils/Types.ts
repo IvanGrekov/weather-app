@@ -41,6 +41,7 @@ export interface WeatherTimepoint extends BaseWeatherTimepoint {
 
 export interface CurrentWeather extends BaseWeatherTimepoint {
   temp: number;
+  feels_like: number;
 }
 
 export interface WeatherData {

@@ -3,7 +3,7 @@ import { Center } from 'native-base';
 
 import { LogoImage } from './LogoImage';
 
-import { ImageSizeType } from '../types';
+import { ImageSizeType } from '../utils/Types';
 
 export const Loader = () => {
   return (

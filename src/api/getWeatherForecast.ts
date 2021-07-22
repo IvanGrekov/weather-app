@@ -1,4 +1,4 @@
-import { initialCurrentWeather, initialDailyWeather } from '../initialData';
+import { initialCurrentWeather, initialDailyWeather } from '../utils/InitialData';
 
 const base_URL = 'https://api.openweathermap.org/data/2.5/onecall';
 const API_key = 'eba6f044ab4a6a8441416431c0cda1b1';
