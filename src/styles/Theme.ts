@@ -4,18 +4,22 @@ import { FontConfig } from './FontConfig';
 import { variables } from '../utils/StyleVariables';
 
 export const theme = extendTheme({
+  roundness: 15,
+  textOpacity: 0.7,
+
   projectColors: {
     primary: variables.mainColor,
-    accent: '#0779E4',
+    accent: variables.blue,
     background: variables.mainColor,
-    text: '#fafafa',
+    backgroundForCard: variables.blue,
+    reserveBackground: variables.white,
+    text: variables.white,
   },
 
-  roundness: 15,
-
   iconSizes: {
-    locationIconSize: 30,
-    weatherIconSize: 45,
+    locationIconSize: 25,
+    weatherIconSize: 40,
+    CurrentWeatheIconSize: 90,
     windIconSize: 30,
   },
 
@@ -29,10 +33,10 @@ export const theme = extendTheme({
     mono: 'Roboto',
   },
 
-  fontSizes: {
-    text: 22,
-    heading: 24,
-    extraHeading: 120,
+  projectFontSizes: {
+    text: 16,
+    heading: 20,
+    extraHeading: 100,
   },
 
   fontConfig: FontConfig,

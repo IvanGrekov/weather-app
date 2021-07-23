@@ -1,10 +1,13 @@
 import { CurrentWeather, WeatherTimepoint } from './Types';
 
 export const initialCurrentWeather: CurrentWeather = {
+  dt: 0,
   temp: 0,
   wind_speed: 0,
   wind_deg: 0,
   feels_like: 0,
+  humidity: 0,
+  visibility: 0,
   weather: [
     {
       main: 'undefined',

@@ -1,25 +1,40 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
-import { Image } from 'native-base';
 
-import { styleVariables } from '../helpers/styleHelper';
+import ClearNight from '../assets/icons/WeatherIcons/01n';
+import ClearDay from '../assets/icons/WeatherIcons/01d';
+
+import { theme } from '../styles/Theme';
+import { Coins } from '../utils/Types';
 
 interface Props {
   iconCode: string;
-  alt: string;
+  isCurrentWeather?: boolean;
 }
 
-const base_URL = 'http://openweathermap.org/img/wn/';
-
-export const Weatherimage = ({ iconCode, alt }: Props) => {
-  const url = `${base_URL}${iconCode}@2x.png`;
-
-  return <Image source={{ uri: url }} alt={alt} style={styles.weatherIcon} />;
+const icons: Coins = {
+  '01n': ClearNight,
+  '01d': ClearDay,
 };
+
+export const WeatherImage = ({ iconCode, isCurrentWeather = false }: Props) => {
+  const Component = icons[iconCode];
+
+  const style = isCurrentWeather ? styles.currentWeatherIcon : styles.weatherIcon;
+  const { width, height } = style;
+
+  return <Component width={width} height={height} />;
+};
+
+const { iconSizes } = theme;
 
 const styles = StyleSheet.create({
   weatherIcon: {
-    width: styleVariables.weatherIconSize,
-    height: styleVariables.weatherIconSize,
+    width: iconSizes.weatherIconSize,
+    height: iconSizes.weatherIconSize,
+  },
+  currentWeatherIcon: {
+    width: iconSizes.CurrentWeatheIconSize,
+    height: iconSizes.CurrentWeatheIconSize,
   },
 });

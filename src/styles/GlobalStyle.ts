@@ -1,24 +1,29 @@
 import { StyleSheet } from 'react-native';
 import { theme } from './Theme';
 
+const { projectColors, fontConfig, projectFontSizes, lineHeights } = theme;
+
 export default StyleSheet.create({
   font: {
     fontWeight: 'normal',
-    color: theme.projectColors.text,
+    color: projectColors.text,
   },
   text: {
-    fontFamily: theme.fontConfig.Roboto[400].normal,
-    fontSize: theme.fontSizes.text,
-    lineHeight: theme.lineHeights.shorter * theme.fontSizes.text,
+    fontFamily: fontConfig.Roboto[400].normal,
+    fontSize: projectFontSizes.text,
+    lineHeight: lineHeights.shorter * projectFontSizes.text,
   },
   heading: {
-    fontFamily: theme.fontConfig.Roboto[500].normal,
-    fontSize: theme.fontSizes.heading,
-    lineHeight: theme.lineHeights.shorter * theme.fontSizes.heading,
+    fontFamily: fontConfig.Roboto[500].normal,
+    fontSize: theme.projectFontSizes.heading,
+    lineHeight: lineHeights.shorter * projectFontSizes.heading,
   },
   extraHeading: {
-    fontFamily: theme.fontConfig.Roboto[500].normal,
-    fontSize: theme.fontSizes.extraHeading,
-    lineHeight: theme.lineHeights.none * theme.fontSizes.text,
+    marginBottom: -projectFontSizes.extraHeading * 0.2,
+
+    fontFamily: fontConfig.Roboto[400].normal,
+    fontSize: projectFontSizes.extraHeading,
+    lineHeight: lineHeights.none * projectFontSizes.extraHeading,
+    letterSpacing: -3,
   },
 });

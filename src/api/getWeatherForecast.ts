@@ -15,6 +15,7 @@ export const getWeatherForecast = (latitude: number, longitude: number) => {
       console.error(error);
 
       return {
+        timezone_offset: 0,
         current: initialCurrentWeather,
         daily: initialDailyWeather,
       };

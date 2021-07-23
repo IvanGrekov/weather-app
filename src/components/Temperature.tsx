@@ -1,48 +1,54 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
-import { HStack, Text } from 'native-base';
+import { HStack, useTheme } from 'native-base';
 
-import { styleVariables } from '../helpers/styleHelper';
+import { Heading } from './Heading';
+import { ExtraHeading } from './ExtraHeading';
 
 interface Props {
-  value: number;
-  isHeading?: boolean;
-  dark?: boolean;
+  children: number;
+  extra?: boolean;
+  isNight?: boolean;
+  style?: object;
 }
 
-export const Temperature = ({ value, isHeading = false, dark = false }: Props) => {
-  const temp = value.toFixed(0);
-  const { defaultFontSize, fontOpacity, headingTempSize, headingSymbolSize } = styleVariables;
+export const Temperature = ({ children, extra = false, isNight = false, style = {} }: Props) => {
+  const { textOpacity, projectFontSizes, lineHeights } = useTheme();
 
-  const fontSize = isHeading ? headingTempSize : defaultFontSize;
-  const symbolFontSize = isHeading ? headingSymbolSize : defaultFontSize;
-  const opacity = dark ? fontOpacity : 1;
-  const marginBottom = -(fontSize - fontSize * 0.8);
+  const symbol = '\u00B0';
+  const temp = children.toFixed(0);
+  const opacity = isNight ? textOpacity : 1;
+  const fontSize = extra ? projectFontSizes.extraHeading : projectFontSizes.heading;
+  const symbolSize = extra ? fontSize * 0.7 : fontSize;
+  const symbolLineHeight = (extra ? lineHeights.none : lineHeights.shorter) * symbolSize;
 
-  const temperatureStyles = {
-    marginBottom,
-    fontSize,
-    lineHeight: fontSize,
-    opacity,
-  };
+  const styles = StyleSheet.create({
+    general: {
+      opacity,
+    },
 
-  const symbolStyles = {
-    fontSize: symbolFontSize,
-    lineHeight: symbolFontSize,
-    opacity,
-  };
+    symbolStyle: {
+      fontSize: symbolSize,
+      lineHeight: symbolLineHeight,
+      opacity,
+    },
+  });
 
   return (
-    <HStack>
-      <Text style={[temperatureStyles, styles.text]}>{temp}</Text>
+    <HStack alignItems="flex-start">
+      {extra ? (
+        <>
+          <ExtraHeading style={[styles.general, style]}>{temp}</ExtraHeading>
 
-      <Text style={[symbolStyles, styles.text]}>{'\u00B0'}</Text>
+          <ExtraHeading style={[styles.general, styles.symbolStyle, style]}>{symbol}</ExtraHeading>
+        </>
+      ) : (
+        <>
+          <Heading style={[styles.general, style]}>{temp}</Heading>
+
+          <Heading style={[styles.general, styles.symbolStyle, style]}>{symbol}</Heading>
+        </>
+      )}
     </HStack>
   );
 };
-
-const styles = StyleSheet.create({
-  text: {
-    color: styleVariables.fontColor,
-  },
-});
