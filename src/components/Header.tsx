@@ -1,11 +1,11 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
-import { HStack, Heading } from 'native-base';
+import { HStack } from 'native-base';
+
+import { Heading } from './Heading';
 
 import LocationIcon from '../assets/icons/LocationIcon';
-
 import { ReadableLocation } from '../utils/Types';
-import GlobalStyle from '../styles/GlobalStyle';
 
 export const Header = ({ location }: { location: ReadableLocation }) => {
   // const { temp, feels_like, wind_deg, wind_speed } = currentWeather;
@@ -16,9 +16,7 @@ export const Header = ({ location }: { location: ReadableLocation }) => {
   return (
     // <VStack alignItems="center">
     <HStack style={styles.header}>
-      <Heading style={[GlobalStyle.font, GlobalStyle.heading, { textAlign: 'center' }]}>
-        {location}
-      </Heading>
+      <Heading content={`${location} `} style={{ marginBottom: -2, textAlign: 'center' }} />
 
       <LocationIcon />
     </HStack>
@@ -60,7 +58,7 @@ export const Header = ({ location }: { location: ReadableLocation }) => {
 
 const styles = StyleSheet.create({
   header: {
-    alignItems: 'center',
+    alignItems: 'flex-end',
     justifyContent: 'center',
     marginVertical: 20,
   },

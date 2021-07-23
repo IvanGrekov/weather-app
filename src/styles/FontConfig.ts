@@ -1,38 +1,25 @@
-export const fontConfig = {
-  web: {
-    medium: {
-      fontFamily: 'Roboto-Medium',
-      fontWeight: '500' as '500',
+export const FontConfig = {
+  Roboto: {
+    100: {
+      normal: 'Roboto-Thin',
     },
-    regular: {
-      fontFamily: 'Roboto-Regular',
-      fontWeight: '400' as '400',
+    200: {
+      normal: 'Roboto-Thin',
     },
-    light: {
-      fontFamily: 'Roboto-Light',
-      fontWeight: '300' as '300',
+    300: {
+      normal: 'Roboto-Light',
     },
-    thin: {
-      fontFamily: 'Roboto-Thin',
-      fontWeight: '100' as '100',
+    400: {
+      normal: 'Roboto-Regular',
     },
-  },
-  android: {
-    medium: {
-      fontFamily: 'Roboto-Medium',
-      fontWeight: '500' as '500',
+    500: {
+      normal: 'Roboto-Medium',
     },
-    regular: {
-      fontFamily: 'Roboto-Regular',
-      fontWeight: '400' as '400',
+    600: {
+      normal: 'Roboto-Medium',
     },
-    light: {
-      fontFamily: 'Roboto-Light',
-      fontWeight: '300' as '300',
-    },
-    thin: {
-      fontFamily: 'Roboto-Thin',
-      fontWeight: '100' as '100',
+    700: {
+      normal: 'Roboto-Bold',
     },
   },
 };

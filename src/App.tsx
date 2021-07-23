@@ -1,17 +1,16 @@
 import React from 'react';
-import { useTheme } from 'react-native-paper';
-import { NativeBaseProvider, StatusBar, VStack } from 'native-base';
+import { NativeBaseProvider, StatusBar, VStack, useTheme } from 'native-base';
 
 import { Content } from './components/Content';
 
 export const App = () => {
-  const { colors } = useTheme();
+  const { projectColors } = useTheme();
 
   return (
     <NativeBaseProvider>
-      <StatusBar barStyle="light-content" backgroundColor={colors.background} />
+      <StatusBar barStyle="light-content" backgroundColor={projectColors.background} />
 
-      <VStack style={{ height: '100%', backgroundColor: colors.background }}>
+      <VStack style={{ height: '100%', backgroundColor: projectColors.background }}>
         <Content />
       </VStack>
     </NativeBaseProvider>

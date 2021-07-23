@@ -1,53 +1,32 @@
-import { configureFonts, DefaultTheme } from 'react-native-paper';
+import { extendTheme } from 'native-base';
 
+import { FontConfig } from './FontConfig';
 import { variables } from '../utils/StyleVariables';
-import { fontConfig } from './FontConfig';
 
-declare global {
-  namespace ReactNativePaper {
-    interface ThemeFonts {
-      bold: ThemeFont;
-    }
-
-    interface Theme {
-      fontSizes: {
-        text: number;
-        heading: number;
-        extraHeading: number;
-      };
-
-      iconSizes: {
-        locationIconSize: number;
-        weatherIconSize: number;
-        windIconSize: number;
-      };
-
-      paddings: {
-        appPaddings: number;
-      };
-    }
-  }
-}
-
-export const theme = {
-  ...DefaultTheme,
-
-  roundness: 15,
-
-  colors: {
-    ...DefaultTheme.colors,
+export const theme = extendTheme({
+  projectColors: {
     primary: variables.mainColor,
     accent: '#0779E4',
     background: variables.mainColor,
     text: '#fafafa',
   },
 
+  roundness: 15,
+
+  iconSizes: {
+    locationIconSize: 30,
+    weatherIconSize: 45,
+    windIconSize: 30,
+  },
+
+  paddings: {
+    appPaddings: 15,
+  },
+
   fonts: {
-    ...configureFonts(fontConfig),
-    bold: {
-      fontFamily: 'Roboto-Bold',
-      fontWeight: '700' as '700',
-    },
+    heading: 'Roboto',
+    body: 'Roboto',
+    mono: 'Roboto',
   },
 
   fontSizes: {
@@ -56,13 +35,5 @@ export const theme = {
     extraHeading: 120,
   },
 
-  iconSizes: {
-    locationIconSize: 40,
-    weatherIconSize: 45,
-    windIconSize: 30,
-  },
-
-  paddings: {
-    appPaddings: 15,
-  },
-};
+  fontConfig: FontConfig,
+});
