@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet } from 'react-native';
 import { List, HStack, useTheme } from 'native-base';
 
-import { Heading } from './Heading';
+import { Heading } from './CustomComponents/Heading';
 import { WeatherImage } from './WeatherImage';
 import { Temperature } from './Temperature';
 import { TempSeparator } from './TempSeparator';

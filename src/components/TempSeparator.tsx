@@ -1,4 +1,9 @@
 import React from 'react';
-import { Heading } from './Heading';
+import { Heading } from './CustomComponents/Heading';
+import { useTheme } from 'native-base';
 
-export const TempSeparator = () => <Heading> / </Heading>;
+export const TempSeparator = () => {
+  const { textOpacity } = useTheme();
+
+  return <Heading style={{ opacity: textOpacity }}> / </Heading>;
+};

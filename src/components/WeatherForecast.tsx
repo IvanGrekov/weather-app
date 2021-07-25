@@ -25,7 +25,8 @@ const { roundness, projectColors } = theme;
 
 const styles = StyleSheet.create({
   listWrapper: {
-    paddingVertical: 20,
+    paddingTop: 20,
+    paddingBottom: 30,
   },
   weatherList: {
     paddingTop: 0,

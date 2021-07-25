@@ -2,8 +2,8 @@ import React from 'react';
 import { StyleSheet } from 'react-native';
 import { HStack, useTheme } from 'native-base';
 
-import { Heading } from './Heading';
-import { ExtraHeading } from './ExtraHeading';
+import { Heading } from './CustomComponents/Heading';
+import { ExtraHeading } from './CustomComponents/ExtraHeading';
 
 interface Props {
   children: number;
@@ -26,7 +26,6 @@ export const Temperature = ({ children, extra = false, isNight = false, style = 
     general: {
       opacity,
     },
-
     symbolStyle: {
       fontSize: symbolSize,
       lineHeight: symbolLineHeight,

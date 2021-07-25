@@ -34,6 +34,7 @@ export const Content = () => {
         const { latitude: lat, longitude: lon }: Position = await getCurrentLocation();
         const { daily, current, timezone_offset }: WeatherData = await getWeatherForecast(lat, lon);
         const { address }: Address = await getReadableLocation(lat, lon);
+
         const validTime = countDate(current.dt, timezone_offset);
         const validAddress = `${address.city}`;
 

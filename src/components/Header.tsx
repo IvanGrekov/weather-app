@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet } from 'react-native';
 import { HStack } from 'native-base';
 
-import { Heading } from './Heading';
+import { Heading } from './CustomComponents/Heading';
 
 import LocationIcon from '../assets/icons/LocationIcon';
 import { ReadableLocation } from '../utils/Types';
@@ -26,6 +26,7 @@ const style = StyleSheet.create({
   },
   heading: {
     marginBottom: -2,
+
     textAlign: 'center',
   },
 });

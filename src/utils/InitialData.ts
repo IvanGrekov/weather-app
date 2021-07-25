@@ -19,6 +19,7 @@ export const initialCurrentWeather: CurrentWeather = {
 
 export const initialDailyWeather: WeatherTimepoint[] = [
   {
+    dt: 0,
     temp: {
       day: 0,
       min: 0,

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text as NativeText } from 'native-base';
 
-import GlobalStyle from '../styles/GlobalStyle';
+import GlobalStyle from '../../styles/GlobalStyle';
 
 interface Props {
   children: string;

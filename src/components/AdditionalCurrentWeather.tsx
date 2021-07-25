@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet } from 'react-native';
 import { HStack, VStack, Box } from 'native-base';
 
-import { Text } from './Text';
+import { Text } from './CustomComponents/Text';
 import WindDirectionIcon from '../assets/icons/WindDirectionIcon';
 import WindCalmIcon from '../assets/icons/WindCalmIcon';
 import HumidityIcon from '../assets/icons/HumidityIcon';
@@ -17,7 +17,6 @@ export const AdditionalCurrentWeather = ({
   currentWeather: CurrentWeatherInterface;
 }) => {
   const { wind_deg, wind_speed, humidity, visibility } = currentWeather;
-
   const roundedWindSpeed = Math.round(wind_speed);
 
   return (

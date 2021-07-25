@@ -1,7 +1,7 @@
 import React from 'react';
 import { Heading as NativeHeading } from 'native-base';
 
-import GlobalStyle from '../styles/GlobalStyle';
+import GlobalStyle from '../../styles/GlobalStyle';
 
 const { font, heading } = GlobalStyle;
 

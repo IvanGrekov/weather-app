@@ -5,8 +5,8 @@ import { HStack, VStack, Box } from 'native-base';
 
 import { WeatherImage } from './WeatherImage';
 import { Temperature } from './Temperature';
-import { Text } from './Text';
-import { Heading } from './Heading';
+import { Text } from './CustomComponents/Text';
+import { Heading } from './CustomComponents/Heading';
 import { AdditionalCurrentWeather } from './AdditionalCurrentWeather';
 
 import { theme } from '../styles/Theme';
@@ -23,7 +23,6 @@ interface Props {
 export const CurrentWeather = ({ currentWeather, time }: Props) => {
   const { temp, feels_like } = currentWeather;
   const { description, icon } = getWeatherStatus(currentWeather);
-
   const dayPart = getDayPart(new Date(time));
   const shorterDescription = makeDescriptionShorter(description);
 
