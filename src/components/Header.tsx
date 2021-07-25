@@ -22,7 +22,7 @@ const style = StyleSheet.create({
     alignItems: 'flex-end',
     justifyContent: 'center',
     marginTop: 20,
-    marginBottom: 30,
+    marginBottom: 20,
   },
   heading: {
     marginBottom: -2,

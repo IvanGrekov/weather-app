@@ -18,7 +18,7 @@ export const theme = extendTheme({
 
   iconSizes: {
     locationIconSize: 25,
-    weatherIconSize: 40,
+    weatherIconSize: 45,
     CurrentWeatheIconSize: 90,
     windIconSize: 30,
   },

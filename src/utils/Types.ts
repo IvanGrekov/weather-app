@@ -19,6 +19,7 @@ export interface WeatherStatus {
 }
 
 interface BaseWeatherTimepoint {
+  dt: number;
   wind_speed: number;
   wind_deg: number;
   weather: [WeatherStatus];
@@ -40,7 +41,6 @@ export interface WeatherTimepoint extends BaseWeatherTimepoint {
 }
 
 export interface CurrentWeather extends BaseWeatherTimepoint {
-  dt: number;
   temp: number;
   feels_like: number;
   humidity: number;

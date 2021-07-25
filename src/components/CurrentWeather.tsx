@@ -28,10 +28,10 @@ export const CurrentWeather = ({ currentWeather, time }: Props) => {
   const shorterDescription = makeDescriptionShorter(description);
 
   return (
-    <VStack>
-      <HStack style={styles.currentWeather}>
+    <VStack style={styles.currentWeather}>
+      <HStack style={styles.mainInfo}>
         <VStack>
-          <Box marginBottom={3}>
+          <Box marginBottom={2}>
             <WeatherImage iconCode={icon} isCurrentWeather={true} />
           </Box>
           <Heading>{makeFirstLetterCapital(shorterDescription)}</Heading>
@@ -57,14 +57,17 @@ const { paddings, roundness, projectColors, fontConfig, projectFontSizes, lineHe
 
 const styles = StyleSheet.create({
   currentWeather: {
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: 12,
     padding: paddings.appPaddings + 5,
-    paddingVertical: paddings.appPaddings + 5,
+    paddingVertical: paddings.appPaddings - 3,
 
     borderRadius: roundness,
     backgroundColor: projectColors.backgroundForCard,
+  },
+  mainInfo: {
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    width: '100%',
+    marginBottom: 18,
   },
   feelsLikeText: {
     fontSize: projectFontSizes.text - 2,

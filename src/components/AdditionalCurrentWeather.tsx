@@ -36,7 +36,7 @@ export const AdditionalCurrentWeather = ({
             {roundedWindSpeed > 0 ? <WindDirectionIcon /> : <WindCalmIcon />}
           </Box>
 
-          <Text style={{ color: projectColors.accent }}>{` ${roundedWindSpeed} м/с`}</Text>
+          <Text style={styles.textInfo}>{` ${roundedWindSpeed} м/с`}</Text>
         </HStack>
       </VStack>
 
@@ -48,7 +48,7 @@ export const AdditionalCurrentWeather = ({
             <HumidityIcon />
           </Box>
 
-          <Text style={{ color: projectColors.accent }}>{` ${humidity}`}</Text>
+          <Text style={styles.textInfo}>{` ${humidity}`}</Text>
         </HStack>
       </VStack>
 
@@ -60,7 +60,7 @@ export const AdditionalCurrentWeather = ({
             <VisibilityIcon />
           </Box>
 
-          <Text style={{ color: projectColors.accent }}>{` ${visibility / 1000} км`}</Text>
+          <Text style={styles.textInfo}>{` ${visibility / 1000} км`}</Text>
         </HStack>
       </VStack>
     </HStack>
@@ -71,8 +71,9 @@ const { paddings, roundness, projectColors, projectFontSizes, iconSizes } = them
 
 const styles = StyleSheet.create({
   additionalCurrentWeather: {
-    justifyContent: 'space-around',
+    justifyContent: 'space-between',
     padding: paddings.appPaddings,
+    paddingVertical: paddings.appPaddings - 6,
 
     borderRadius: roundness,
     backgroundColor: projectColors.reserveBackground,
@@ -85,7 +86,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   additionalWeatherTitle: {
-    fontSize: projectFontSizes.text + 1,
+    fontSize: projectFontSizes.text - 2,
+    color: projectColors.accent,
+  },
+  textInfo: {
+    fontSize: projectFontSizes.text - 3,
     color: projectColors.accent,
   },
   windIconWrapper: {
