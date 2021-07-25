@@ -1,7 +1,7 @@
 import React from 'react';
 import { Center } from 'native-base';
 
-import { LogoImage } from './LogoImage';
+import { LogoImage } from '../assets/icons/LogoImage';
 
 import { ImageSizeType } from '../utils/Types';
 

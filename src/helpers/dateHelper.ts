@@ -1,7 +1,9 @@
 export const getDayPart = (date: Date): string => {
   const hours = date.getUTCHours();
 
-  if (hours >= 23 && hours < 4) {
+  console.log(hours);
+
+  if (hours >= 23 || (hours > 0 && hours < 4)) {
     return 'Ночь';
   }
 
