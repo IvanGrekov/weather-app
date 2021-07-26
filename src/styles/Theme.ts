@@ -1,7 +1,7 @@
 import { extendTheme } from 'native-base';
 
 import { FontConfig } from './FontConfig';
-import { variables } from '../utils/StyleVariables';
+import { variables } from './StyleVariables';
 
 export const theme = extendTheme({
   roundness: 15,
