@@ -2,12 +2,9 @@ import * as React from 'react';
 import Svg, { Defs, LinearGradient, Stop, Circle, Path } from 'react-native-svg';
 import { useTheme } from 'native-base';
 
-interface Props {
-  width?: number;
-  height?: number;
-}
+import { WeatherIcon } from '../../../utils/Types';
 
-export const FewCloudyDayIcon = ({ width = 0, height = 0 }: Props) => {
+export const FewCloudyDayIcon = ({ width = 0, height = 0 }: WeatherIcon) => {
   const { iconSizes } = useTheme();
   const { weatherIconSize } = iconSizes;
 
@@ -59,7 +56,7 @@ export const FewCloudyDayIcon = ({ width = 0, height = 0 }: Props) => {
   );
 };
 
-export const FewCloudyNightIcon = ({ width = 0, height = 0 }: Props) => {
+export const FewCloudyNightIcon = ({ width = 0, height = 0 }: WeatherIcon) => {
   const { iconSizes } = useTheme();
   const { weatherIconSize } = iconSizes;
 

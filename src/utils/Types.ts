@@ -7,6 +7,11 @@ export enum ImageSizeType {
   '2xl' = '2xl',
 }
 
+export interface WeatherIcon {
+  width?: number;
+  height?: number;
+}
+
 export interface Position {
   latitude: number;
   longitude: number;

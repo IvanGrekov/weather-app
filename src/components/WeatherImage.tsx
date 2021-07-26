@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 
 import { ClearDayIcon, ClearNightIcon } from '../assets/icons/WeatherIcons/01';
 import { FewCloudyDayIcon, FewCloudyNightIcon } from '../assets/icons/WeatherIcons/02';
-import CloudsIcon from '../assets/icons/WeatherIcons/03';
+import CloudsIcon from '../assets/icons/WeatherIcons/03_04';
 import ShowerRainIcon from '../assets/icons/WeatherIcons/09';
 import { RainyDayIcon, RainyNightIcon } from '../assets/icons/WeatherIcons/10';
 import { ThunderstormDayIcon, ThunderstormNightIcon } from '../assets/icons/WeatherIcons/11';
