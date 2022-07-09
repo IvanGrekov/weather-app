@@ -1,3 +1,3 @@
 # weather-rn-ivan-grekov
 
-Информация о погоде
+Weather forecast app
